@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="container bg-dark text-white" style="padding:30px; margin: 20px; margin-left: 0px; margin-right: 0px;">
+            Score Predictor
+        </div>
+    <form action=" " method="POST">
+
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="overs">Current Score:</label>
+          <input type="text" class="form-control" placeholder="Enter Current Score" name="score">
+        </div>
+
+        <div class="form-group">
+            <label for="overs">Wickets fallen:</label>
+            <input type="text" class="form-control" placeholder="Enter Wickets fallen" name="wickets">
+        </div>
+
+        <div class="form-group">
+            <label for="overs">Overs bowled:</label>
+            <input type="text" class="form-control" placeholder="Enter overs bowled" name="overs">
+        </div>
+
+        <div class="form-group">
+            <label for="overs">Striker (max runs among 2 batsman batting):</label>
+            <input type="text" class="form-control" placeholder="Enter Striker score" name="striker">
+          </div>
+
+          <div class="form-group">
+            <label for="overs">Non-striker (min run among 2 batsman batting):</label>
+            <input type="text" class="form-control" placeholder="Enter non-striker score" name="nonstriker">
+          </div>
+        
+        <button type="submit" class="btn btn-primary">Predict</button>
+      </form>
+
+      {%if score%}
+      <b>predicted score:</b>
+      {{score}}
+      {%endif%}
+      </div>
+</body>
+</html>
+
